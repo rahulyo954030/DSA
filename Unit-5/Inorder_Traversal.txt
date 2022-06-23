@@ -1,0 +1,15 @@
+function inorderTraversal(root){
+    let res = [];
+  rahul(root, res);
+  return res;
+}
+
+function rahul(root, res) {
+  if (root===null) {
+    return res;
+  }
+  rahul(root.left, res);
+  res.push(root.val);
+  rahul(root.right, res);
+//   return res;
+}

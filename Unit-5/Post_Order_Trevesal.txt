@@ -1,0 +1,16 @@
+function postorderTraversal(root){
+     let res = [];
+  helper(root, res);
+  return res;
+}
+
+function helper(root, res) {
+  if (root===null) {
+    return res;
+  }
+  helper(root.left, res);
+  helper(root.right, res);
+  res.push(root.val);
+  return res;
+
+}

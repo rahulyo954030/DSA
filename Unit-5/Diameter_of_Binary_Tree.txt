@@ -1,0 +1,25 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+var diameterOfBinaryTree = function(root) {
+   let d = 0;
+   rahul(root);
+   return d+1;
+   function rahul(root){
+    if(root === null){
+        return 0;
+    }
+    let left = rahul(root.left)
+    let right = rahul(root.right)
+    
+    d = Math.max(d, left+right)
+    return 1 + Math.max(left,right)
+}
+}
+
+
