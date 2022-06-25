@@ -1,0 +1,16 @@
+function PreorderTraversal(root){
+   let res = [];
+  rahul(root, res);
+  return res;
+}
+
+function rahul(root, res) {
+  if (root===null) {
+    return res;
+  }
+  res.push(root.val);
+  rahul(root.left, res);
+  
+  rahul(root.right, res);
+  
+}

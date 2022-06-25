@@ -1,0 +1,23 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+// Complete the function below
+
+function mirror(root){
+    if (root===null) {
+    return;
+  }
+  if (root.left) {
+    mirror(root.left);
+  }
+  if (root.right) {
+    mirror(root.right);
+  }
+  let temp = root.left;
+  root.left = root.right;
+  root.right = temp;
+}

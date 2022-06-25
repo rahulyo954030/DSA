@@ -1,0 +1,14 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+var maxDepth = function(root) {
+    return helper(root, 0);
+};
+var helper = function (root, level) {
+  if (!root) return level;
+  return Math.max(helper(root.left, level + 1), helper(root.right, level + 1));
+};
