@@ -1,4 +1,5 @@
 var levelOrder = function(root) {
+
 let q = [root], ans = []
     while (q[0]) {
         let qlen = q.length, row = []
@@ -11,4 +12,5 @@ let q = [root], ans = []
         ans.push(row)            
     }
     return ans
+
 }

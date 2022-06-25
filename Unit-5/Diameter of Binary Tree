@@ -7,9 +7,9 @@ class Node {
 }
 
 var diameterOfBinaryTree = function(root) {
-   let d = 0;
+   let diameter = 0;
    rahul(root);
-   return d+1;
+   return diameter+1;
    function rahul(root){
     if(root === null){
         return 0;
@@ -17,9 +17,10 @@ var diameterOfBinaryTree = function(root) {
     let left = rahul(root.left)
     let right = rahul(root.right)
     
-    d = Math.max(d, left+right)
+    diameter = Math.max(diameter, left+right)
     return 1 + Math.max(left,right)
 }
+
 }
 
 
