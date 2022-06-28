@@ -1,0 +1,66 @@
+//Enter code here
+function runProgram(input){
+ let [column,row,length]=input.split(" ").map(Number);
+ 
+   let chessboard =[[0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0]];
+             knight(chessboard,row-1,column-1,length);
+             moves(chessboard);
+   }
+   function knight(chessboard,column,row,length)
+   {
+       if(row<0 || column<0 || row>9 ||column>9){ return ;}
+       if(length===0){chessboard[row][column]=1;return;}
+        knight(chessboard,row-2,column+1,length-1);
+        knight(chessboard,row-2,column-1,length-1);
+        knight(chessboard,row-1,column-2,length-1);
+        knight(chessboard,row-1,column+2,length-1);
+        knight(chessboard,row+1,column+2,length-1);
+        knight(chessboard,row+1,column-2,length-1);
+        knight(chessboard,row+2,column+1,length-1);
+        knight(chessboard,row+2,column-1,length-1);
+     }
+   function moves(chessboard)
+   {
+       let count_knight_moves=0;
+       for(let row=0; row<10; row++){
+           for(let column=0; column<10; column++){
+               if(chessboard[row][column]==1)
+               {
+                   count_knight_moves++;
+               }
+           }
+       }
+       console.log(count_knight_moves);
+   }
+
+ 
+
+if (process.env.USER === "") {
+  runProgram(``);
+} else {
+  process.stdin.resume();
+  process.stdin.setEncoding("ascii");
+  let read = "";
+  process.stdin.on("data", function (input) {
+    read += input;
+  });
+  process.stdin.on("end", function () {
+    read = read.replace(/\n$/, "");
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+  });
+  process.on("SIGINT", function () {
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+    process.exit(0);
+  });
+}
